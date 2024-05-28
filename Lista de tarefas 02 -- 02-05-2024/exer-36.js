@@ -7,7 +7,7 @@
 
 
 let qntDeNumerosSorteados = 4;
-let qntFinalNumeros = 20;  
+let qntFinalNumeros = 20;  //de 0 ate 20
 let qntApostadores = 10000;
 
 //sorteando os numeros da loteria guardando no array e depois ordenando
