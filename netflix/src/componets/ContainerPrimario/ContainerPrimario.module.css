@@ -1,0 +1,27 @@
+.container {
+  background: url("/src/assets/img_fundo_netflix.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-image: fill 0 linear-gradient(rgba(0, 0, 0, 0.63), #0000009c);
+  height: 100vh;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .logo {
+  position: absolute;
+  top: 5%;
+  left: 8%;
+  width: 13rem;
+}
+
+@media screen and (max-width: 600px) {
+  .container .logo {
+    left: 0;
+    top: 3%;
+    width: 7rem;
+  }
+}

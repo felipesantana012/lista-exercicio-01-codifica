@@ -1,0 +1,55 @@
+.container {
+  height: 100%;
+  background-color: black;
+  color: white;
+}
+
+.footer {
+  border-top: 2px solid rgb(39, 39, 39);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  padding: 3rem;
+  flex-direction: column;
+  gap: 2rem;
+  color: white;
+  opacity: 0.8;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.links li {
+  list-style: none;
+  flex: 1 1 140px;
+}
+
+.links li a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.8;
+  border-bottom: 1px solid white;
+  font-size: 0.8rem;
+}
+
+.select {
+  background-color: #0f0f0f;
+  width: 10rem;
+  padding: 0.5rem;
+  color: white;
+  font-size: 1.1rem;
+  /* text-align: center; */
+}
+
+.select option {
+  position: relative;
+}
+
+.select option .icon {
+  position: absolute;
+  top: 0;
+}
