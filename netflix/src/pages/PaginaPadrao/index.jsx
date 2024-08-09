@@ -1,14 +1,14 @@
-import React from "react";
+import styles from "./paginaPadrao.module.css";
 import { Outlet } from "react-router-dom";
 
 const PaginaPadrao = () => {
   return (
-    <div>
-      <header>Private Header</header>
-      <main>
-        <Outlet /> {/* Renderiza a rota filha */}
+    <div className={styles.paginaPadrao}>
+      <header className={styles.header}>Private Header</header>
+      <main className={styles.main}>
+        <Outlet />
       </main>
-      <footer>Private Footer</footer>
+      <footer className={styles.footer}>Private Footer</footer>
     </div>
   );
 };

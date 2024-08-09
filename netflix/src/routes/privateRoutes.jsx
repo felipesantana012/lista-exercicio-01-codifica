@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext.jsx";
 
 const PrivateRoutes = ({ children }) => {
   const { isAuthenticated } = useAuth(); // Função que verifica se o usuário está autenticado
-  return isAuthenticated ? children : <Navigate to="/" />;
+  return isAuthenticated ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRoutes;

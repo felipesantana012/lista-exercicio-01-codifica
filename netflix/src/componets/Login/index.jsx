@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Botao from "../Botao";
 import styles from "./Login.module.css";
 import { useAuth } from "../../context/AuthContext.jsx";
+import { authenticateUser } from "../../services/loginService.js";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -17,33 +18,9 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:3000/users", {
-        method: "GET", // Use GET para buscar usuários existentes
-        headers: { "Content-Type": "application/json" },
-      });
-
-      if (!response.ok) {
-        throw new Error("Falha na autenticação");
-      }
-
-      const data = await response.json();
-
-      // Verifique se data é um array e se contém a lista de usuários
-      if (!Array.isArray(data)) {
-        throw new Error("Dados de usuários inválidos");
-      }
-
-      // Verifique se a senha corresponde
-      const user = data.find(
-        (user) => user.email === email && user.senha === senha
-      );
-      if (!user) {
-        throw new Error("Usuário não encontrado");
-      }
-
-      login(user.token);
-      // Redireciona após o login
-      navigate("/home");
+      const user = await authenticateUser(email, senha);
+      login(user);
+      navigate("/");
     } catch (error) {
       setError(error.message);
     } finally {

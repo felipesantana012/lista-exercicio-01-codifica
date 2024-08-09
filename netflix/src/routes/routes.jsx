@@ -9,10 +9,11 @@ import { AuthProvider } from "../context/AuthContext.jsx";
 
 const AppRoutes = () => {
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <Routes>
-          <Route path="/" element={<Login />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+
           <Route
             element={
               <PrivateRoutes>
@@ -20,13 +21,13 @@ const AppRoutes = () => {
               </PrivateRoutes>
             }
           >
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/sobre" element={<Sobre />} />
           </Route>
           <Route path="*" element={<NaoEncontrada />}></Route>
         </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 };
 

@@ -1,0 +1,25 @@
+.paginaPadrao {
+  display: grid;
+  grid-template-rows: 10vh auto 5rem;
+  height: 100vh;
+}
+
+.header {
+  background: #aa6d6d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  background-color: rgb(48, 24, 24);
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.footer {
+  background: #683535;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
