@@ -1,0 +1,50 @@
+.header {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(5px);
+  padding: 0.5rem;
+  z-index: 2;
+}
+
+.logo {
+  width: 8rem;
+  cursor: pointer;
+}
+
+.nome_user_sair {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nome_user_sair h3 {
+  color: white;
+}
+
+.nome_user_sair button {
+  color: white;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.3rem;
+  background: #e50914;
+  transition: ease-in-out 0.3s;
+}
+
+.nome_user_sair button:hover {
+  opacity: 0.9;
+  box-shadow: 0px 0px 0px 1px white inset;
+}
+
+@media screen and (max-width: 430px) {
+  .nome_user_sair h3 {
+    font-size: 1rem;
+  }
+
+  .logo {
+    width: 5rem;
+  }
+}

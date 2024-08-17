@@ -1,10 +1,11 @@
 import styles from "./paginaPadrao.module.css";
 import { Outlet } from "react-router-dom";
+import Header from "../../componets/Header";
 
 const PaginaPadrao = () => {
   return (
     <div className={styles.paginaPadrao}>
-      <header className={styles.header}>Private Header</header>
+      <Header />
       <main className={styles.main}>
         <Outlet />
       </main>
