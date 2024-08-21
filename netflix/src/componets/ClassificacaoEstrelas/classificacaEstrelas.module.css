@@ -1,0 +1,5 @@
+.classificacaoEstrelas {
+  display: flex;
+  gap: 5px;
+  color: yellow;
+}

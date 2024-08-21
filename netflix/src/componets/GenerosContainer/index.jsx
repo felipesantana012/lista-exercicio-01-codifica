@@ -1,6 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from "./GenerosContainer.module.css";
+import CardFilme from "../CardFilme";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+// import required modules
+import { Pagination } from "swiper/modules";
 
 const GenerosContainer = () => {
   const [genresWithMovies, setGenresWithMovies] = useState([]);
@@ -34,19 +43,16 @@ const GenerosContainer = () => {
             }
           );
 
-          // Retornar um objeto com o nome do gênero e os filmes
           return {
             name: genre.name,
             movies: moviesResponse.data.results,
           };
         });
 
-        // Aguarda todas as promessas serem resolvidas
         const genresWithMoviesData = await Promise.all(
           genresWithMoviesPromises
         );
         setGenresWithMovies(genresWithMoviesData);
-        console.log(genresWithMovies.name);
       } catch (error) {
         console.error("Erro ao buscar os gêneros e filmes:", error);
       }
@@ -59,13 +65,26 @@ const GenerosContainer = () => {
     <div className={styles.homeContainer}>
       {/* Renderiza os gêneros e seus filmes */}
       {genresWithMovies.map((genreWithMovies) => (
-        <div key={genreWithMovies.name}>
+        <div key={genreWithMovies.name} className={styles.containerFilmes}>
           <h3>{genreWithMovies.name}</h3>
-          <ul>
+
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={10}
+            loop={true}
+            grabCursor={true}
+          >
             {genreWithMovies.movies.map((movie) => (
-              <li key={movie.id}>{movie.title}</li>
+              <SwiperSlide key={movie.id}>
+                <CardFilme
+                  key={movie.id}
+                  title={movie.title}
+                  backdrop_path={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                  vote_average={movie.vote_average}
+                />
+              </SwiperSlide>
             ))}
-          </ul>
+          </Swiper>
         </div>
       ))}
     </div>
